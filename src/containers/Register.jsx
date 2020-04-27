@@ -117,7 +117,7 @@ class Register extends Component {
     
         
             const user = {"name":name,"cell":cell,"dob":dob,"city":city,"zipcode":zipcode,"email":email}
-           // sessionStorage.setItem('user', JSON.stringify(user))
+            localStorage.setItem('user', JSON.stringify(user))
             this.props.history.push( {pathname: '/user',
             
             state: { user: user}
