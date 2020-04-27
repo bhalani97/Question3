@@ -32,10 +32,7 @@ class Register extends Component {
     seeUsers(){
         const {name,cell,dob,city,zipcode,msg,email} = this.state
         const user = {"name":name,"cell":cell,"dob":dob,"city":city,"zipcode":zipcode,"email":email}
-        this.props.history.push( {pathname: '/user',
-            
-        state: { user: user}
-     })
+        this.props.history.push( {pathname: '/user'})
     }
     validate(){
        
@@ -118,10 +115,7 @@ class Register extends Component {
         
             const user = {"name":name,"cell":cell,"dob":dob,"city":city,"zipcode":zipcode,"email":email}
             localStorage.setItem('user', JSON.stringify(user))
-            this.props.history.push( {pathname: '/user',
-            
-            state: { user: user}
-         })
+            this.props.history.push( {pathname: '/user'})
             
         
     }
