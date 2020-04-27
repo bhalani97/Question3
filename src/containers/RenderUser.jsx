@@ -12,12 +12,26 @@ class RenderUser extends Component {
     }
 
     componentDidMount(){
+        let users = []
+        const allUserFromLocal = JSON.parse(localStorage.getItem("users"))
+        const user = JSON.parse(localStorage.getItem("user"))
+        if(allUserFromLocal!==null){
+            let i=0;
+            for(i=0;i<allUserFromLocal.length;i++){
+              
+                users.push({name:allUserFromLocal[i].name,city:allUserFromLocal[i].city,cell:allUserFromLocal[i].cell,dob:allUserFromLocal[i].dob,zipcode:allUserFromLocal[i].zipcode,email:allUserFromLocal[i].email})
+           }
+        }
+        users.push({name:user.name,city:user.city,cell:user.cell,dob:user.dob,zipcode:user.zipcode,email:user.email})
+        
+      
         this.setState(
             {
-                user:this.props.user,
-                currentUser:this.props.user
+                user:users,
+                currentUser:users
             }
         )
+        localStorage.setItem("users", JSON.stringify(users));
     }
     searchByName(event){
         // console.log(event.target.value)
@@ -36,7 +50,7 @@ class RenderUser extends Component {
                currentUser:user
            }
        )
-       console.log(this.state.currentUser)
+       
         
     }
     searchByCell(event){
@@ -52,12 +66,10 @@ class RenderUser extends Component {
                return u;
            }
        })
-       this.setState(
-           {
-               currentUser:user
-           }
-       )
-       console.log(this.state.currentUser)
+       this.setState({
+         currentUser: user,
+       });
+       
         
     }
 
@@ -85,7 +97,7 @@ class RenderUser extends Component {
                        <th>DOB</th>
                        <th>Email</th>
                        <th>ZipCode</th>
-                           </tr>
+                       </tr>
                    </thead>
                    <tbody>
                        {
