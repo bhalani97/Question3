@@ -41,9 +41,16 @@ class Register extends Component {
         this.setState({
             msg:''
         })
+        if(email===""){
+            this.setState({
+                msg:'Please Enter Email id',
+                validate:false
+            }) 
+            return ;
+        }
         
         const allUserFromLocal = JSON.parse(localStorage.getItem("users"))
-        if(allUserFromLocal!=null){
+        if(allUserFromLocal!=null ){
             let i=0;
             for(i=0;i<allUserFromLocal.length;i++){
                if(allUserFromLocal[i].email==this.state.email){
