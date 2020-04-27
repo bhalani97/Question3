@@ -22,8 +22,11 @@ class RenderUser extends Component {
                 users.push({name:allUserFromLocal[i].name,city:allUserFromLocal[i].city,cell:allUserFromLocal[i].cell,dob:allUserFromLocal[i].dob,zipcode:allUserFromLocal[i].zipcode,email:allUserFromLocal[i].email})
            }
         }
-        users.push({name:user.name,city:user.city,cell:user.cell,dob:user.dob,zipcode:user.zipcode,email:user.email})
+        if(user!==null){
+            users.push({name:user.name,city:user.city,cell:user.cell,dob:user.dob,zipcode:user.zipcode,email:user.email})
+        }
         
+        localStorage.removeItem('user')
       
         this.setState(
             {
@@ -34,10 +37,7 @@ class RenderUser extends Component {
         localStorage.setItem("users", JSON.stringify(users));
     }
     searchByName(event){
-        // console.log(event.target.value)
-        // if(event.target.value===""){
-        //     this.componentDidMount()
-        // }
+        
         const copy_User = [...this.state.user]
         let start = event.target.value
        const user = copy_User.filter(u=>{
