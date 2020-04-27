@@ -78,12 +78,14 @@ class RenderUser extends Component {
                <div className="container">
                <table className="table">
                    <thead>
+                       <tr>
                        <th>Name</th>
                        <th>City</th>
                        <th>Cell</th>
                        <th>DOB</th>
                        <th>Email</th>
                        <th>ZipCode</th>
+                           </tr>
                    </thead>
                    <tbody>
                        {
