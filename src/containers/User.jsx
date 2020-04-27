@@ -49,50 +49,18 @@ class User extends Component {
     }
 
 
-     componentDidMount(){ 
-           
-         
-         
-        //  const stateUser = [...this.state.user]
-        //  console.log(stateUser.length)
-        //  stateUser[stateUser.length] = user
-
-        //  //console.log(stateUser)
-        //  this.setState({
-        //      user:stateUser
-        //  })
-         
-        
-         
-
-
-          let users = []
-          const allUserFromLocal = JSON.parse(localStorage.getItem("users"))
-
-        //   console.log(allUserFromLocal.length)
-        //  if(allUserFromLocal.length==0){
-        //      let i=0;
-        //      for(i=0;i<allUserFromLocal.length;i++){
-               
-        //          users.push({name:allUserFromLocal[i].name,city:allUserFromLocal[i].city,cell:allUserFromLocal[i].cell,dob:allUserFromLocal[i].dob,zipcode:allUserFromLocal[i].zipcode,email:allUserFromLocal[i].email})
-        //     }
-        //     localStorage.setItem("users", JSON.stringify(users));
-        //  }
-         if(allUserFromLocal.length===0){
-            localStorage.setItem("users", JSON.stringify(this.state.user));
-         }
-        //  users.push(user)
-        //  localStorage.setItem("users", JSON.stringify(this.state.user));
-       
-         
-         
-        //  this.setState({
-        //    user:users
-        //  })
-        //  console.log(users)
-        //  console.log(this.state.user)
-
-     }
+     componentDidMount(){
+                          let users = [];
+                          const allUserFromLocal = JSON.parse(
+                            localStorage.getItem("users")
+                          );
+                          if (allUserFromLocal.length === 0) {
+                            localStorage.setItem(
+                              "users",
+                              JSON.stringify(this.state.user)
+                            );
+                          }
+                        }
     
     render() { 
       
