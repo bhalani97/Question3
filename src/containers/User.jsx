@@ -49,12 +49,12 @@ class User extends Component {
     }
 
 
-     componentDidMount(){
+     componentWillMount(){
                           let users = [];
                           const allUserFromLocal = JSON.parse(
                             localStorage.getItem("users")
                           );
-                          if (allUserFromLocal.length === 0) {
+                          if (allUserFromLocal === null) {
                             localStorage.setItem(
                               "users",
                               JSON.stringify(this.state.user)
